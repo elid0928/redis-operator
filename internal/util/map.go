@@ -17,6 +17,9 @@ func MergeMap[K comparable, V any](all ...map[K]V) map[K]V {
 // Note: This is a shallow copy; if the values are reference types,
 // the copied map will reference the same underlying objects as the source.
 func CopyMap[K comparable, V any](src map[K]V) map[K]V {
+	if src == nil {
+		return nil
+	}
 	return MergeMap(src)
 }
 
